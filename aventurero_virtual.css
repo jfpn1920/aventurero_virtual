@@ -1,0 +1,78 @@
+/* ===== Variables de color ===== */
+:root {
+  --fondo: #f1f4f6;      /* fondo general gris azulado muy claro */
+  --tinta: #12303a;      /* color del texto */
+  --blanco: #ffffff;     /* fondo de tarjetas y paneles */
+  --naranja: #f77f00;    /* color de acento */
+  --verde: #2a9d68;      /* aventura completada */
+  --borde: #d3dde2;      /* color de bordes suaves */
+}
+/* ===== Reinicio básico de márgenes ===== */
+* {
+    box-sizing: border-box; /* el padding no agranda los elementos */
+    margin: 0;
+    padding: 0;
+}
+/* ===== Estilo general del cuerpo ===== */
+body { font-family: "Trebuchet MS", Verdana, sans-serif; background: var(--fondo); color: var(--tinta); line-height: 1.5; }
+/* ===== Encabezado con degradado ===== */
+.encabezado { background: linear-gradient(135deg, #12303a, #1d6f7a); color: var(--blanco); text-align: center; padding: 44px 20px; }
+.encabezado h1 { font-size: 2.6rem; margin-bottom: 8px; }
+/* ===== Contenedor central ===== */
+main { max-width: 1000px; margin: 0 auto; padding: 30px 20px 50px; }
+/* ===== Paneles blancos ===== */
+.panel {
+    background: var(--blanco);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+/* ===== Campo de texto ===== */
+input { padding: 10px 12px; border: 2px solid var(--borde); border-radius: 8px; font-size: 1rem; max-width: 320px; }
+/* ===== Cuadrícula de tarjetas (se adapta al ancho) ===== */
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+/* ===== Tarjeta de aventura ===== */
+.tarjeta {
+    background: var(--blanco);
+    border: 3px solid transparent;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Tarjeta completada (la clase la agrega JavaScript) */
+.tarjeta.completada { border-color: var(--verde); }
+/* ===== Zona de imagen ===== */
+/* El emoji se centra con flexbox */
+.foto {
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+/* Cada aventura tiene su propio degradado de fondo */
+.tarjeta[data-id="senderismo"] .foto { background: linear-gradient(160deg, #a8d5ba, #3f7d58); }
+.tarjeta[data-id="buceo"] .foto { background: linear-gradient(160deg, #8fd3f4, #1d5fa0); }
+.tarjeta[data-id="camping"] .foto { background: linear-gradient(160deg, #3a3a6d, #f77f00); }
+/* ===== Textos de la tarjeta ===== */
+.dato { color: var(--naranja); font-weight: bold; font-size: 0.85rem; }
+.tarjeta p { flex: 1; color: #4d6670; }
+/* ===== Botones ===== */
+button { padding: 12px; border: none; border-radius: 8px; background: var(--tinta); color: var(--blanco); font-size: 1rem; cursor: pointer; }
+button:hover { opacity: 0.85; }
+/* Botón de una aventura ya completada */
+.tarjeta.completada .btn-completar { background: var(--verde); }
+/* Botón con aspecto más discreto */
+.secundario { background: transparent; color: var(--tinta); border: 2px solid var(--borde); }
+/* Borde visible al navegar con el teclado */
+input:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); }
+/* ===== Resumen de progreso ===== */
+.resumen { margin-top: 30px; }
+.barra { height: 18px; background: var(--borde); border-radius: 9px; overflow: hidden; }
+#relleno { height: 100%; width: 0; background: var(--naranja); transition: width 0.4s; }

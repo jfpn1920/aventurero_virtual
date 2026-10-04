@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aventurero virtual</title>
+    <link rel="stylesheet" href="aventurero_virtual.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="aventurero_virtual.js" defer></script>
+</head>
+<body>
+    <!--------------------------------------->
+    <!--|estructuracion_aventurero_virtual|-->
+    <!--------------------------------------->
+    <header class="encabezado">
+        <!-- Título principal -->
+        <h1>Aventurero Virtual</h1>
+        <p>Completa tres aventuras y sube de nivel.</p>
+    </header>
+    <!-- Contenido principal de la página -->
+    <main>
+        <!-- Panel donde el aventurero escribe su nombre -->
+        <section class="panel">
+            <!-- Etiqueta con su campo debajo -->
+            <label for="nombre">Nombre del aventurero</label>
+            <!-- Campo de texto: el nombre se guarda en localStorage -->
+            <input type="text" id="nombre" placeholder="Escribe tu nombre" maxlength="25">
+            <!-- Aquí JavaScript muestra el saludo -->
+            <p id="saludo"></p>
+        </section>
+        <!-- Fin del panel del nombre -->
+        <!-- Contenedor de las tres tarjetas (data-id identifica la aventura, data-puntos su valor) -->
+        <section class="tarjetas">
+            <!-- Aventura 1: Senderismo -->
+            <article class="tarjeta" data-id="senderismo" data-puntos="10">
+                <!-- Zona de imagen: emoji sobre un fondo de color -->
+                <div class="foto">⛰️</div>
+                <h2>Senderismo en la montaña</h2>
+                <!-- Dificultad y puntos que da la aventura -->
+                <span class="dato">Dificultad media · 10 puntos</span>
+                <p>Sube por un sendero entre nubes y miradores.</p>
+                <!-- Botón que completa o desmarca la aventura -->
+                <button class="btn-completar">Completar aventura</button>
+            </article>
+            <!-- Aventura 2: Buceo -->
+            <article class="tarjeta" data-id="buceo" data-puntos="20">
+                <!-- Zona de imagen: emoji sobre un fondo de color -->
+                <div class="foto">🤿</div>
+                <h2>Buceo en el arrecife</h2>
+                <!-- Dificultad y puntos que da la aventura -->
+                <span class="dato">Dificultad alta · 20 puntos</span>
+                <p>Nada entre corales y peces de mil colores.</p>
+                <!-- Botón que completa o desmarca la aventura -->
+                <button class="btn-completar">Completar aventura</button>
+            </article>
+            <!-- Aventura 3: Camping -->
+            <article class="tarjeta" data-id="camping" data-puntos="15">
+                <!-- Zona de imagen: emoji sobre un fondo de color -->
+                <div class="foto">⛺</div>
+                <h2>Camping bajo las estrellas</h2>
+                <!-- Dificultad y puntos que da la aventura -->
+                <span class="dato">Dificultad baja · 15 puntos</span>
+                <p>Arma tu carpa y mira el cielo junto a la fogata.</p>
+                <!-- Botón que completa o desmarca la aventura -->
+                <button class="btn-completar">Completar aventura</button>
+            </article>
+        </section>
+        <!-- Fin de las tarjetas -->
+        <!-- Panel con el progreso del aventurero -->
+        <section class="panel resumen">
+            <!-- Título del panel -->
+            <h2>Tu progreso</h2>
+            <!-- Aquí JavaScript escribe los puntos y el nivel -->
+            <p id="textoProgreso"></p>
+            <!-- Barra: el div interior crece según los puntos -->
+            <div class="barra"><div id="relleno"></div></div>
+            <!-- Botón que borra todos los datos guardados -->
+            <button id="btnReiniciar" class="secundario">Reiniciar todo</button>
+        </section>
+        <!-- Fin del progreso -->
+    </main>
+</body>
+</html>
